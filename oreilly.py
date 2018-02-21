@@ -23,7 +23,7 @@ for s in sections:
     ssoup = BeautifulSoup(sr.text, "html.parser", parse_only=only_a_tags)
     ssections = ssoup.find_all("a", attrs={"data-toggle": "popover"})
     for ss in ssections:
-        title = ss.get('title')
+        title = ss.get('title').replace('/', '-')
         uri = ss.get('href')
         #print("  ", title, uri)
         if not "http:" in uri and not "https:" in uri:
